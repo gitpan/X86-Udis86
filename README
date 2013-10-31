@@ -1,16 +1,15 @@
-X86-Udis86 version 0.01
-=======================
+X86-Udis86 version 1.7.2.1
+==========================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+This module provides a Perl interface to the C disassembler, udis86.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+This version works with version 1.7.2 of udis86.
+
+The code is hosted at sourceforge.net and can be cloned via :
+
+git clone https://bob9960@git.code.sf.net/p/x86udis86/code
+
+Most (but not all) of the functionality of the C disassembler is currenty available.
 
 INSTALLATION
 
@@ -28,7 +27,7 @@ available from http://sourceforge.net/projects/udis86/
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2009 by Bob Wilkinson
+Copyright (C) 2009, 2013 by Bob Wilkinson
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,
