@@ -11,9 +11,12 @@ fallback/const-xs.inc
 lib/X86/Udis86.pm
 lib/X86/Udis86/Operand.pm
 src/udis86.h
+src/libudis86/decode.h
 src/libudis86/extern.h
-src/libudis86/types.h
 src/libudis86/itab.h
+src/libudis86/syn.h
+src/libudis86/types.h
+src/libudis86/udint.h
 const-c.inc
 const-xs.inc
 META.yml                                 Module YAML meta-data (added by MakeMaker)

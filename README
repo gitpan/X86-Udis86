@@ -1,13 +1,11 @@
-X86-Udis86 version 1.7.2.1
+X86-Udis86 version 1.7.2.2
 ==========================
 
 This module provides a Perl interface to the C disassembler, udis86.
 
 This version works with version 1.7.2 of udis86.
 
-The code is hosted at sourceforge.net and can be cloned via :
-
-git clone https://bob9960@git.code.sf.net/p/x86udis86/code
+The code is hosted at https://sourceforge.net/p/x86udis86/
 
 Most (but not all) of the functionality of the C disassembler is currenty available.
 

@@ -34,6 +34,7 @@ Please install udis86 from http://sourceforge.net/projects/udis86;
 if installed locally, invoke $0 with LIBS and INC set appropriately.
 e.g. perl Makefile.PL LIBS='-L/home/bob/src/udis86-1.7.2/libudis86/.libs -ludis86' INC='-I/home/bob/src/udis86-1.7.2 -I.'
 DEATH
+unlink Makefile or warn "Could not unlink broken Makefile: $!";
 exit 0; # 0 recommended by http://cpantest.grango.org (Notes for CPAN Authors)
 }
 
