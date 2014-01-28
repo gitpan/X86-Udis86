@@ -1,4 +1,4 @@
-X86-Udis86 version 1.7.2.2
+X86-Udis86 version 1.7.2.3
 ==========================
 
 This module provides a Perl interface to the C disassembler, udis86.
@@ -25,7 +25,7 @@ available from http://sourceforge.net/projects/udis86/
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2009, 2013 by Bob Wilkinson
+Copyright (C) 2009, 2013-2014 by Bob Wilkinson
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,

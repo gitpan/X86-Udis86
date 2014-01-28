@@ -7,6 +7,8 @@ use Data::Dumper;
 
 use vars qw/$DEVNULL/;
 
+my $udis_version = "1.7.2";
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 my $state = WriteMakefile(
@@ -29,10 +31,10 @@ my $state = WriteMakefile(
 
 unless (have_udis86($state->{ARGS}->{INC}, $state->{ARGS}->{LIBS})) {
   print STDERR <<DEATH;
-udis86 not found - this module depends upon it.
+udis86 $udis_version not found - this module depends upon it.
 Please install udis86 from http://sourceforge.net/projects/udis86;
 if installed locally, invoke $0 with LIBS and INC set appropriately.
-e.g. perl Makefile.PL LIBS='-L/home/bob/src/udis86-1.7.2/libudis86/.libs -ludis86' INC='-I/home/bob/src/udis86-1.7.2 -I.'
+e.g. perl Makefile.PL LIBS='-L/home/bob/src/udis86-$udis_version/libudis86/.libs -ludis86' INC='-I/home/bob/src/udis86-$udis_version -I.'
 DEATH
 unlink Makefile or warn "Could not unlink broken Makefile: $!";
 exit 0; # 0 recommended by http://cpantest.grango.org (Notes for CPAN Authors)
@@ -137,5 +139,32 @@ EOF
   my $retval = xsystem(join (" ", $Config{ccname}, $Config{ccflags}, $incs, $jlibs, "-o mytest mytest.c -ludis86"));
   chdir ("..");
   rm_fr(".testlink");
-  return $retval;
+
+  if ($retval) {
+    my $udcli;
+    if (length $incs) {
+      my @maybe_udcli = map {$_ . '/udcli/udcli'} split(/\s*-I/, $incs);
+      foreach my $tmp (@maybe_udcli) {
+        if (-e $tmp and -x _) {
+          $udcli = $tmp;
+          last;
+        }
+      }
+    } 
+
+    if (not length $udcli) {
+      chomp($udcli = `which udcli`);
+    }
+        
+    if (length $udcli) {
+      $command = $udcli . ' --version 2>&1';
+      chomp(my $string = `$command`);
+      my $rv = $string =~ /^udis86\s+$udis_version$/;
+      return $rv;
+    } else {
+      return 0;
+    }
+  } else {
+    return 0;
+  }
 }

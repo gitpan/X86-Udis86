@@ -12,7 +12,7 @@ use AutoLoader;
 
 our @ISA = qw(Exporter);
 
-our $VERSION = '1.7.2.2';
+our $VERSION = '1.7.2.3';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()

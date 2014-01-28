@@ -13,5 +13,8 @@ Revision history for Perl extension X86::Udis86.
           add facility to build locally installed version of udis86
 
 1.7.2.2  Fri Nov 01 20:46:25 2013
-        - unlink Makefie if there is no libudis86
+        - unlink Makefile if there is no libudis86
         - add missing header files to MANIFEST
+
+1.7.2.3  Tue Jan 28 20:36:25 2014
+        - fix for https://rt.cpan.org/Public/Bug/Display.html?id=92317
